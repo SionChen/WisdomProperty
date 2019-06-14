@@ -9,6 +9,6 @@ A new Flutter project.
 1. 配置好Flutter开发相关配置
 2. 下载项目运行即可
 
-## 项目展示
+## 展示
 
 ![img](https://github.com/SionChen/WisdomProperty/blob/master/QQ20190614-162925-HD.gif)
