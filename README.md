@@ -2,15 +2,13 @@
 
 A new Flutter project.
 
+一个在我自学Flutter的过程写的实战项目，开发思路来源于阿里拍卖前端团队开发的FlutterGo项目，项目中包含一个App开发的基础框架搭建和一些简单的组件应用。
+
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+1. 配置好Flutter开发相关配置
+2. 下载项目运行即可
 
-A few resources to get you started if this is your first Flutter project:
+## 项目展示
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+![img](https://github.com/SionChen/WisdomProperty/blob/master/QQ20190614-162925-HD.gif)
