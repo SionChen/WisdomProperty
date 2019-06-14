@@ -6,7 +6,7 @@ A new Flutter project.
 
 ## Getting Started
 
-1. 配置好Flutter开发相关配置
+1. 配置好Flutter开发相关配置,环境配置可以参考：https://www.jianshu.com/p/487602d1d5d5
 2. 下载项目运行即可
 
 ## 展示
