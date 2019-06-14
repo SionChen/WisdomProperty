@@ -1,7 +1,7 @@
 // This is a generated file; do not edit or check into version control.
 FLUTTER_ROOT=/Users/chenyongxiao/Soft/flutter
-FLUTTER_APPLICATION_PATH=/Users/chenyongxiao/Desktop/Flutter/giant /WisdomProperty
-FLUTTER_TARGET=/Users/chenyongxiao/Desktop/Flutter/giant /WisdomProperty/lib/main.dart
+FLUTTER_APPLICATION_PATH=/Users/chenyongxiao/Desktop/Flutter/giant /giant_property
+FLUTTER_TARGET=/Users/chenyongxiao/Desktop/Flutter/giant /giant_property/lib/main.dart
 FLUTTER_BUILD_DIR=build
 SYMROOT=${SOURCE_ROOT}/../build/ios
 FLUTTER_FRAMEWORK_DIR=/Users/chenyongxiao/Soft/flutter/bin/cache/artifacts/engine/ios

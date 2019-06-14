@@ -22,9 +22,7 @@ class _WisdomPartyBuildingPageState extends State<WisdomPartyBuildingPage>{
   @override
   void initState() {
     super.initState();
-    NetUtils.login('zdd', '123456').then((response){
-       _getMoreData();
-    });//模拟登录
+    _getMoreData();
     
     _scrollController.addListener(() {
       // 如果下拉的当前位置到scroll的最下面
