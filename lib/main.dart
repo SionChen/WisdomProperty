@@ -6,11 +6,13 @@ import 'routers/routers.dart';
 import 'routers/application.dart';
 
 import 'package:giant_property/utils/shared_preferences/shared_preferences.dart';
+import 'package:giant_property/utils/network/net_utils.dart';
 
 const int ThemeColor = 0xFFFFFFFF;
 SpUtil sp;
 void main() async{
   sp = await SpUtil.getInstance();//用来做shared_preferences的存储
+  await NetUtils.login('zdd', '123456');//模拟登陆
   runApp(MyApp());
   //设置状态栏风格
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
