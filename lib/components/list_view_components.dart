@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-//上拉加载更多控件
+//上拉加载更多控件.
 class ListViewLoadMoreIndicator extends StatelessWidget{
   final bool hasMore;
   final bool isLoading;
@@ -12,7 +12,7 @@ class ListViewLoadMoreIndicator extends StatelessWidget{
     this.isLoading,
     this.noMoreText = '数据没有更多了！！！',
   });
-  // 加载中的提示
+  // 加载中的提示.
   Widget _loadText() {
     return Container(
         child: Padding(
