@@ -12,4 +12,4 @@ A new Flutter project.
 4. 后续还会进行开发更新。
 ## 展示
 
-![img](https://github.com/SionChen/WisdomProperty/blob/master/QQ20190614-162925-HD.gif)
+![img](https://github.com/SionChen/WisdomProperty/blob/master/QQ20190618-140447-HD.gif)
