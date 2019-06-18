@@ -13,10 +13,10 @@ class WisdomPartyBuildingPage extends StatefulWidget{
   }
 }
 class _WisdomPartyBuildingPageState extends State<WisdomPartyBuildingPage>{
-  bool isLoading = false; // 是否正在请求数据中
-  bool _hasMore = true; // 是否还有更多数据可加载
-  int _pageIndex = 0; // 页面的索引
-  int _pageTotal = 0; // 页面的索引
+  bool isLoading = false; // 是否正在请求数据中.
+  bool _hasMore = true; // 是否还有更多数据可加载.
+  int _pageIndex = 1; // 页面的索引.
+  int _pageTotal = 0; // 页面的索引.
   ScrollController _scrollController = new ScrollController();
   List<WisdomPartyBuildingListModel> items = [];
   @override
@@ -25,21 +25,21 @@ class _WisdomPartyBuildingPageState extends State<WisdomPartyBuildingPage>{
     _getMoreData();
     
     _scrollController.addListener(() {
-      // 如果下拉的当前位置到scroll的最下面
+      // 如果下拉的当前位置到scroll的最下面.
       if (_scrollController.position.pixels ==
-          _scrollController.position.maxScrollExtent) {
+          _scrollController.position.maxScrollExtent&&_pageTotal>_pageIndex) {
         _getMoreData();
       }
     });
   }
-  // list探底，执行的具体事件
+  // list探底，执行的具体事件.
   Future _getMoreData() async {
     if (!isLoading && _hasMore) {
-      // 如果上一次异步请求数据完成 同时有数据可以加载
+      // 如果上一次异步请求数据完成 同时有数据可以加载.
       if (mounted) {
         setState(() => isLoading = true);
       }
-      //if(_hasMore){ // 还有数据可以拉新
+      //if(_hasMore){ // 还有数据可以拉新.
       List<WisdomPartyBuildingListModel> newEntries = await httpRequest();
       //if (newEntries.isEmpty) {
       _hasMore = (_pageIndex <= _pageTotal);
@@ -50,8 +50,8 @@ class _WisdomPartyBuildingPageState extends State<WisdomPartyBuildingPage>{
         });
       }
     } else if (!isLoading && !_hasMore) {
-      // 这样判断,减少以后的绘制
-      _pageIndex = 0;
+      // 这样判断,减少以后的绘制.
+      _pageIndex = 1;
     }
   }
   @override
@@ -72,7 +72,7 @@ class _WisdomPartyBuildingPageState extends State<WisdomPartyBuildingPage>{
       onRefresh: _handleRefresh,
     );
   }
-  //  刷新动作
+  //  刷新动作.
   Future<Null> _handleRefresh() async{
     _pageIndex = 1;
     List<WisdomPartyBuildingListModel>  newEntries = await httpRequest();
@@ -86,7 +86,7 @@ class _WisdomPartyBuildingPageState extends State<WisdomPartyBuildingPage>{
       });
     }
   }
-  // 伪装吐出新数据
+  // 伪装吐出新数据.
   Future<List<WisdomPartyBuildingListModel>> httpRequest() async {
       final listObj = await getIndexListData({'pageIndex': _pageIndex});
       _pageIndex = listObj['pageIndex'];
@@ -94,7 +94,7 @@ class _WisdomPartyBuildingPageState extends State<WisdomPartyBuildingPage>{
       print(listObj);
       return listObj['list'];
   }
-  //获取数据
+  //获取数据.
   Future<Map> getIndexListData([Map<String, dynamic> params]) async {
     //const juejin_flutter = 'http://jmtapp.superwan.cn/msi/home.php';
     const wisdom_url = 'http://mptestapi.cngiantech.com:80/api/content/notices';

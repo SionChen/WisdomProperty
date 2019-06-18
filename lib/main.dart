@@ -13,6 +13,7 @@ SpUtil sp;
 void main() async{
   sp = await SpUtil.getInstance();//用来做shared_preferences的存储
   await NetUtils.login('zdd', '123456');//模拟登陆
+  await NetUtils.getUserAuthority();//获取用户权限
   runApp(MyApp());
   //设置状态栏风格
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);

@@ -7,6 +7,7 @@ class Routers{
   static String root = "/";
   static String home = "/home";
   static String webViewPage = '/web-view-page';
+  static String caseOrderListViewPage = '/case-order-list-view-page';
   static void configureRoutes(Router router){
     router.notFoundHandler = new Handler(
         handlerFunc: (BuildContext context, Map<String, List<String>> params) {
@@ -14,6 +15,7 @@ class Routers{
     router.define(root, handler: homeHandler);
     router.define(home, handler: homeHandler);
     router.define(webViewPage,handler:webViewPageHandler);
+    router.define(caseOrderListViewPage,handler:caseOrderListViewPageHandler);
   }
   
 }

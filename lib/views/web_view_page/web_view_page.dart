@@ -19,6 +19,7 @@ class _WebViewPageState extends State<WebViewPage> {
        key: _scaffoldKey,
       appBar: AppBar(
         title: Text(widget.title),
+        elevation: 0,
         // actions: <Widget>[
         //   new IconButton(
         //     tooltip: 'goBack home',

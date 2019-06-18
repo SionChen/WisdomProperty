@@ -18,15 +18,19 @@ Map<String,dynamic> HttpHeaders = {
 };
 class NetUtils {
   static Future get(String url,{Map<String,dynamic> params}) async{
+    print('请求参数： $params');
     var response = await dio.get(url, data: params);
     return  response.data;
   }
 
   static Future post(String url,Map<String,dynamic> params) async{
+    print('请求参数： $params');
     var response = await dio.post(url, data: params);
     return response.data;
   }
 
+
+  //登录.
   static Future login(String login_name,String password) async{
     const login_url = 'http://mptestapi.cngiantech.com:80/api/auth';
     final _param  = {'login_name':login_name,'password':password,};
@@ -40,6 +44,19 @@ class NetUtils {
       //保存
       await SpUtil.getInstance()..putString(SharedPreferencesKeys.token, response['access_token']);
       return response;
+    } catch (e) {
+    }
+  }
+  //获取用户功能权限.
+  static Future getUserAuthority() async{
+    const url = 'http://mptestapi.cngiantech.com:80/api/menu/action';
+    try {
+      
+      var response = await NetUtils.get(url,);
+      print('Authority ${response['data']}');
+      //保存 权限信息
+      await SpUtil.getInstance()..putString(SharedPreferencesKeys.authorityData, response['data']);
+      return response;  
     } catch (e) {
     }
   }

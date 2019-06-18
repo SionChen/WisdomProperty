@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:fluro/fluro.dart';
 
+import 'package:giant_property/main.dart';
 import 'package:giant_property/model/case_order/case_order_page_model.dart';
 import 'package:giant_property/model/wisdom_party_building/wisdom_party_building_list_model.dart';
 import 'package:giant_property/model/case_order/case_order_model.dart';
+import 'package:giant_property/utils/shared_preferences/shared_preferences_keys.dart';
+import 'package:giant_property/routers/routers.dart';
+import 'package:giant_property/routers/application.dart';
+import 'package:giant_property/routers/routers.dart';
+import 'package:giant_property/routers/application.dart';
 
 class ListHeaderItem extends StatelessWidget{
   final WisdomPartyBuildingListModel wisdomModel;
@@ -85,7 +92,15 @@ class ListHeaderItem extends StatelessWidget{
             SizedBox(
               height: 20,
             ),
-            _itemCard(context),
+            GestureDetector(
+              child:  _itemCard(context),
+              onTap: (){
+                final String url = 'http://mptest.cngiantech.com:80/gv/${wisdomModel.id}?token=${sp.getString(SharedPreferencesKeys.token)}';
+                print(url);
+                Application.router.navigateTo(context, '${Routers.webViewPage}?title=${Uri.encodeComponent(wisdomModel.title)}&url=${Uri.encodeComponent(url)}',transition: TransitionType.inFromRight);
+              },
+            ),
+           
           ],
         ),
       ),
@@ -113,7 +128,7 @@ class ListViewItem extends StatelessWidget{
                 ),
                 Center(
                   child: Text(
-                    '${pageModel.data.length}',
+                    '${pageModel.total}',
                     style: TextStyle(color: Colors.white,
                       fontSize: 52,
                     ),
@@ -134,15 +149,16 @@ class ListViewItem extends StatelessWidget{
     columns.add(
       Row(
             children: <Widget>[
-              Text('没有做后续点击',
+              Text(pageModel.homeTitle,
                 style: Theme.of(context).textTheme.title,
               ),
               SizedBox(
                 width: 4,
               ),
-              Icon(
-                Icons.arrow_right,
-              ),
+              Image.asset('assets/images/arrow.png'),
+              // Icon(
+              //   Icons.arrow_right,
+              // ),
             ],
       ),
     );
@@ -203,22 +219,27 @@ class ListViewItem extends StatelessWidget{
     
     return Container(
       color: Colors.white,
-      child: Card(
-        margin: const EdgeInsets.symmetric(vertical: 12,horizontal: 16),
-        elevation: 6,
-        shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(4.0))),  //设置圆角,
-        child: Container(
-          height: 107,
-          child: Stack(
-            children: <Widget>[
-                Positioned(
-                  right: 0,
-                  child: Image.asset(pageModel.typeIconImageString,
-                  alignment: Alignment.centerRight,
+      child: GestureDetector(
+        onTap: (){//跳转工单列表.
+          Application.router.navigateTo(context, '${Routers.caseOrderListViewPage}?type=${pageModel.type}',transition: TransitionType.inFromRight);
+        },
+        child: Card(
+          margin: const EdgeInsets.symmetric(vertical: 12,horizontal: 16),
+          elevation: 6,
+          shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(4.0))),  //设置圆角,
+          child: Container(
+            height: 107,
+            child: Stack(
+              children: <Widget>[
+                  Positioned(
+                    right: 0,
+                    child: Image.asset(pageModel.typeIconImageString,
+                    alignment: Alignment.centerRight,
+                    ),
                   ),
-                ),
-                _buildRow(context),
-            ],
+                  _buildRow(context),
+              ],
+            ),
           ),
         ),
       ),

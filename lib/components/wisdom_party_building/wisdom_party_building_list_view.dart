@@ -6,7 +6,6 @@ import 'package:giant_property/routers/application.dart';
 import 'package:giant_property/routers/routers.dart';
 import 'package:giant_property/model/wisdom_party_building/wisdom_party_building_list_model.dart';
 import 'package:giant_property/utils/shared_preferences/shared_preferences_keys.dart';
-import 'package:giant_property/utils/shared_preferences/shared_preferences.dart';
 
 class WisdomPartyBuildingListView extends StatelessWidget{
   final WisdomPartyBuildingListModel model;
