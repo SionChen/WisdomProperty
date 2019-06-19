@@ -19,7 +19,7 @@ var webViewPageHandler = new Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
   String title = params['title']?.first;
   String url = params['url']?.first;
-  return new WebViewPage(url, title);
+  return new WebViewPage(url, title??'');
 });
 
 var caseOrderListViewPageHandler = new Handler(
