@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import 'package:giant_property/components/remote_door_page/remote_door_alert.dart';
 import 'package:giant_property/components/list_view_components.dart';
 import 'package:giant_property/components/remote_door_page/remote_door_list_item.dart';
 import 'package:giant_property/model/remote_door/remote_door_list_model.dart';
@@ -21,7 +22,9 @@ class _RemoteDoorPageState extends State<RemoteDoorPage>{
     super.initState();
     _handleRefresh();
   }
-
+  void _showAlertMsg(RemoteDoorListModel model,BuildContext context,bool open){
+    RemoteDoorAlertWeight.showRemoteDoorAlert(model,context,open);
+  }
   @override
   Widget build(BuildContext context){
     return RefreshIndicator(
@@ -32,7 +35,7 @@ class _RemoteDoorPageState extends State<RemoteDoorPage>{
           if (items.isEmpty) {
             return ListViewEmptyComponents();
           }else{
-            return RemoteDoorListItem(items[index]);
+            return RemoteDoorListItem(items[index],_showAlertMsg);
           }
         },
       ),
@@ -63,6 +66,7 @@ class _RemoteDoorPageState extends State<RemoteDoorPage>{
       for (int i = 0; i < sluice.length; i++) {
         try {
           RemoteDoorListModel cellData = new RemoteDoorListModel.fromJson(sluice[i]);
+          cellData.type = 'sluice';
           sluiceList.add(cellData);
         } catch (e) {
           // No specified type, handles all
@@ -72,6 +76,7 @@ class _RemoteDoorPageState extends State<RemoteDoorPage>{
       for (int i = 0; i < guards.length; i++) {
         try {
           RemoteDoorListModel cellData = new RemoteDoorListModel.fromJson(guards[i]);
+          cellData.type = 'guard';
           guardsList.add(cellData);
         } catch (e) {
           // No specified type, handles all

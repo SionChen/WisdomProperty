@@ -7,19 +7,21 @@ import 'package:giant_property/utils/network/net_utils.dart';
 import 'package:giant_property/views/first_page/first_page.dart';
 import 'package:giant_property/views/remote_door_page/remote_door_page.dart';
 import 'package:giant_property/views/wisdom_party_building/wisdom_party_building.dart';
+
+
 class AppPage extends StatefulWidget{
-  
+  static GlobalKey<ScaffoldState> homeScaffoldKey = GlobalKey<ScaffoldState>();
   @override
   _AppPageState createState(){
     return _AppPageState();
   }
 }
-
 class _AppPageState extends State<AppPage> with SingleTickerProviderStateMixin{
    
   static List tabData = [];
   List<BottomNavigationBarItem> myTabs = []; 
   String appBarTitle = '';
+  
   @override
   void initState() {
     super.initState();
@@ -56,6 +58,7 @@ class _AppPageState extends State<AppPage> with SingleTickerProviderStateMixin{
   @override 
   Widget build(BuildContext context){
     return Scaffold(
+      key: AppPage.homeScaffoldKey,
       appBar: AppBar(title: MyNavigationBar(appBarTitle),
         backgroundColor: Theme.of(context).backgroundColor,
         elevation: 0.0,//阴影辐射范围
