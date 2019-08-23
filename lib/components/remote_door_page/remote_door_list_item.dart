@@ -4,7 +4,8 @@ import 'package:giant_property/model/remote_door/remote_door_list_model.dart';
 
 class RemoteDoorListItem extends StatefulWidget{
   final RemoteDoorListModel model;
-  RemoteDoorListItem(this.model);
+  final showDisclaimerMsg;
+  RemoteDoorListItem(this.model,this.showDisclaimerMsg);
   @override
   _RemoteDoorListItemState createState(){
     return _RemoteDoorListItemState();
@@ -27,50 +28,63 @@ class _RemoteDoorListItemState extends State<RemoteDoorListItem>{
           ),
       )
     );
-    rows.add(
-      SizedBox(
-        width: 64,
-        height: 40,
-        child: FlatButton(
-          color: Theme.of(context).accentColor,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
-          child: Text('开门',
-            style: TextStyle(
-              color:Colors.white,
-              fontSize:  Theme.of(context).textTheme.title.fontSize,
+    if(widget.model.operate['open'] != null){
+      rows.add(
+        SizedBox(
+          width: 64,
+          height: 40,
+          child: FlatButton(
+            color: Theme.of(context).accentColor,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+            child: Text('开门',
+              style: TextStyle(
+                color:Colors.white,
+                fontSize:  Theme.of(context).textTheme.title.fontSize,
+              ),
             ),
+            onPressed: (){
+              if(widget.showDisclaimerMsg is Function){
+                widget.showDisclaimerMsg(widget.model,context,true);
+              }
+            },
           ),
-          onPressed: (){},
         ),
-      ),
-    );
-    rows.add(
-      SizedBox(
-          width: 12,
-      )
-    );
-    rows.add(
-      SizedBox(
-        width: 64,
-        height: 40,
-        child: FlatButton(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
-          color: Color(0xFFC80D29),
-          child: Text('关门',
-            style: TextStyle(
-              color:Colors.white,
-              fontSize:  Theme.of(context).textTheme.title.fontSize,
+      );
+      rows.add(
+        SizedBox(
+            width: 12,
+        )
+      );
+    }
+    if(widget.model.operate['close'] != null){
+      rows.add(
+        SizedBox(
+          width: 64,
+          height: 40,
+          child: FlatButton(
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+            color: Color(0xFFC80D29),
+            child: Text('关门',
+              style: TextStyle(
+                color:Colors.white,
+                fontSize:  Theme.of(context).textTheme.title.fontSize,
+              ),
             ),
+            onPressed: (){
+              if(widget.showDisclaimerMsg is Function){
+                widget.showDisclaimerMsg(widget.model,context,false);
+              }
+            },
           ),
-          onPressed: (){},
         ),
-      ),
-    );
-    rows.add(
-      SizedBox(
-          width: 12,
-      )
-    );
+      );
+      rows.add(
+        SizedBox(
+            width: 12,
+        )
+      );
+    }
+    
     return rows;
   }
   Widget _buildRow(BuildContext context){

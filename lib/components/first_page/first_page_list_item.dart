@@ -178,7 +178,7 @@ class ListViewItem extends StatelessWidget{
   }
   Widget _subtielWidget(BuildContext context,CaseOrderModel model){
     return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
         Container(
           decoration: BoxDecoration(
@@ -199,8 +199,15 @@ class ListViewItem extends StatelessWidget{
           width: 8,
         ),
         Text(model.title,
-          style: Theme.of(context).textTheme.title,
+            style: Theme.of(context).textTheme.title,
         ),
+        // ListTile(
+        //   title: Text(model.title,
+        //     style: Theme.of(context).textTheme.title,
+        //   ),
+        // ),
+        
+        
       ],
     );
   }
@@ -215,7 +222,6 @@ class ListViewItem extends StatelessWidget{
   }
   @override
   Widget build(BuildContext context){
-    //homeBlueCorner
     
     return Container(
       color: Colors.white,

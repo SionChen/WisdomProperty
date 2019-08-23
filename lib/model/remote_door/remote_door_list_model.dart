@@ -4,7 +4,7 @@ class RemoteDoorListModel{
   final String name;
   final String channelId;
   final Map<String,dynamic> operate;
-  final String type;
+  String type;
   RemoteDoorListModel(
     {this.name,
     this.channelId,
