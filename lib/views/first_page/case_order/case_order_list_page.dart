@@ -40,9 +40,9 @@ class _CaseOrderListPageState extends State<CaseOrderListPage> with SingleTicker
   }
   //获取数据.
   Future<Map> getListData(Map<String,dynamic> params) async{
-    var url = widget.isWarranty?'http://mptestapi.cngiantech.com:80/api/case/maintains':'http://mptestapi.cngiantech.com:80/api/case/complains';
-    var pageIndex = (params is Map) ? params['pageIndex'] : 0;
     var status = params['status'];
+    var url = widget.isWarranty?(status =='处理中' ?'https://www.fastmock.site/mock/a5aedf2d79d5b9f6332deaccf5797002/giantProperty/home/pending_maintains':'https://www.fastmock.site/mock/a5aedf2d79d5b9f6332deaccf5797002/giantProperty/home/all_maintains'):(status =='处理中' ?'https://www.fastmock.site/mock/a5aedf2d79d5b9f6332deaccf5797002/giantProperty/home/pending_complains':'https://www.fastmock.site/mock/a5aedf2d79d5b9f6332deaccf5797002/giantProperty/home/all_complains');
+    var pageIndex = (params is Map) ? params['pageIndex'] : 0;
     var related = status =='处理中' ?'流转给我':'';
     final _param  = {'page':pageIndex,'pre_page':20,'status':status,'related':related};
     var responseList = [];

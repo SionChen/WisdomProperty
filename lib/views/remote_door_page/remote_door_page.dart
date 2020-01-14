@@ -49,7 +49,7 @@ class _RemoteDoorPageState extends State<RemoteDoorPage>{
       if (mounted) {
         setState(() => isLoading = true);
       }
-      const url = 'http://mptestapi.cngiantech.com:80/api/index/xzhy/channels';
+      const url = 'https://www.fastmock.site/mock/a5aedf2d79d5b9f6332deaccf5797002/giantProperty/channels';
 
       List<RemoteDoorListModel> sluiceList = [];//道闸数据.
       List<RemoteDoorListModel> guardsList = [];//门禁数据
@@ -61,8 +61,8 @@ class _RemoteDoorPageState extends State<RemoteDoorPage>{
       }catch(e){
 
       }
-      List sluice =  responseMap['sluice'];
-      List guards =  responseMap['guards'];
+      List sluice =  responseMap['sluice']??List();
+      List guards =  responseMap['guards']??List();
       for (int i = 0; i < sluice.length; i++) {
         try {
           RemoteDoorListModel cellData = new RemoteDoorListModel.fromJson(sluice[i]);

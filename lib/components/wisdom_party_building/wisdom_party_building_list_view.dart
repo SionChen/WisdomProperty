@@ -14,7 +14,7 @@ class WisdomPartyBuildingListView extends StatelessWidget{
   Widget build(BuildContext context){
     return GestureDetector(
       onTap: (){
-        final String url = 'http://mptest.cngiantech.com:80/gv/${model.id}?token=${sp.getString(SharedPreferencesKeys.token)}';
+        final String url = 'http://xnj.cngiantech.com:8001/gv/${model.id}?token=${sp.getString(SharedPreferencesKeys.token)}';
         //final String url = 'https://www.baidu.com';
         print(url);
         Application.router.navigateTo(context, '${Routers.webViewPage}?title=${Uri.encodeComponent(model.title)}&url=${Uri.encodeComponent(url)}',transition: TransitionType.inFromRight);
