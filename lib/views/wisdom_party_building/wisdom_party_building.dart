@@ -97,7 +97,7 @@ class _WisdomPartyBuildingPageState extends State<WisdomPartyBuildingPage>{
   //获取数据.
   Future<Map> getIndexListData([Map<String, dynamic> params]) async {
     //const juejin_flutter = 'http://jmtapp.superwan.cn/msi/home.php';
-    const wisdom_url = 'http://mptestapi.cngiantech.com:80/api/content/notices';
+    const wisdom_url = 'https://www.fastmock.site/mock/a5aedf2d79d5b9f6332deaccf5797002/giantProperty/notices';
     var pageIndex = (params is Map) ? params['pageIndex'] : 0;
     final _param  = {'page':pageIndex,'pre_page':20,};
     var responseList = [];

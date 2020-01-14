@@ -32,7 +32,7 @@ class NetUtils {
 
   //登录.
   static Future login(String login_name,String password) async{
-    const login_url = 'http://mptestapi.cngiantech.com:80/api/auth';
+    const login_url = 'http://xnjapi.cngiantech.com:8001/api/auth';
     final _param  = {'login_name':login_name,'password':password,};
     try {
       

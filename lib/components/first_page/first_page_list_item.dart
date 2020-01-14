@@ -95,7 +95,7 @@ class ListHeaderItem extends StatelessWidget{
             GestureDetector(
               child:  _itemCard(context),
               onTap: (){
-                final String url = 'http://mptest.cngiantech.com:80/gv/${wisdomModel.id}?token=${sp.getString(SharedPreferencesKeys.token)}';
+                final String url = 'http://xnj.cngiantech.com:8001/gv/${wisdomModel.id}?token=${sp.getString(SharedPreferencesKeys.token)}';
                 print(url);
                 Application.router.navigateTo(context, '${Routers.webViewPage}?title=${Uri.encodeComponent(wisdomModel.title)}&url=${Uri.encodeComponent(url)}',transition: TransitionType.inFromRight);
               },

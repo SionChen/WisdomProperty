@@ -17,7 +17,7 @@ class CaseOrderPageModel {
     this.perPage,
     this.caseOrder,
     this.type,
-  }){//初始化之后
+  }){//初始化方法
     
   }
   void setType(String value){

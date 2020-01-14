@@ -59,7 +59,7 @@ class _FirstPageState extends State<FirstPage>{
   }
   //获取数据
   Future<Map> getIndexListData([Map<String, dynamic> params]) async {
-    const url = 'http://mptestapi.cngiantech.com:80/api/index';
+    const url = 'https://www.fastmock.site/mock/a5aedf2d79d5b9f6332deaccf5797002/giantProperty/home';
     var data = {};
 
     try{
@@ -70,9 +70,9 @@ class _FirstPageState extends State<FirstPage>{
 
     }
     List resultList = new List();
-    Map noticeMap = data['notice'];
-    Map maintainMap = data['maintain'];
-    Map complainMap = data['complain'];
+    Map noticeMap = data['notice']??Map();
+    Map maintainMap = data['maintain']??Map();
+    Map complainMap = data['complain']??Map();
     if (noticeMap.isNotEmpty) {
       wisdom = WisdomPartyBuildingListModel.fromJson(noticeMap);
       resultList.add(wisdom);

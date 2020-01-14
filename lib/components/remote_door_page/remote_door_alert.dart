@@ -158,7 +158,7 @@ class RemoteDoorAlertWeight extends StatelessWidget {
   static Future<Map> _setCloseOrOpen(BuildContext context) async{
     Map<String,dynamic> params = {};
     if(remoteDoorListModel == null){return Map();};
-    String url = 'http://mptestapi.cngiantech.com:80/api/index/xzhy/channel';
+    String url = 'https://www.fastmock.site/mock/a5aedf2d79d5b9f6332deaccf5797002/giantProperty/channel/channel_open';
     params['operate'] = _open?'open':'close';
     params['channel_id'] = remoteDoorListModel.channelId;
     params['type'] = remoteDoorListModel.type;
